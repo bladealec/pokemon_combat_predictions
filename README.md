@@ -40,7 +40,7 @@ The dataset contains the following columns:
 - **Feature Set and Target Variable**: The feature set includes all columns except 'Name' and 'Combat Power'. The target variable is 'Combat Power'.
 - **Train-Test Split**: The data is split into training and test sets with a test size of 20%.
 - **Regression Model**: A Random Forest Regressor is used for predicting combat power.
-- **Model Evaluation**: The model's performance is evaluated using Root Mean Squared Error (RMSE).
+- **Model Evaluation**: The model's performance is evaluated using the relative Root Mean Squared Error (RMSE).
 
 ## Requirements
 
