@@ -1,6 +1,7 @@
 # Pokémon Combat Power Prediction
 
-This project aims to predict the combat power of Pokémon based on various attributes. The dataset includes several features such as type, health points, attack, defense, and more. The data contains null values and outliers, which are handled through data cleaning processes.
+This project serves as a learning exercise in machine learning and data science. It aims to predict the combat power of Pokémon based on various attributes. The dataset includes several features such as type, health points, attack, defense, and more. The data contains null values and outliers, which are handled through data cleaning processes.
+
 
 ## Dataset Description
 
@@ -39,16 +40,41 @@ The dataset contains the following columns:
 
 - **Feature Set and Target Variable**: The feature set includes all columns except 'Name' and 'Combat Power'. The target variable is 'Combat Power'.
 - **Train-Test Split**: The data is split into training and test sets with a test size of 20%.
-- **Regression Model**: A Random Forest Regressor is used for predicting combat power.
-- **Model Evaluation**: The model's performance is evaluated using the relative Root Mean Squared Error (RMSE).
+
+#### Models
+
+1. **Random Forest Regressor**
+   - **File**: `randomforest_model.ipynb`
+   - **Description**: A Random Forest Regressor used to predict combat power.
+   - **Evaluation**: Root Mean Squared Error (RMSE) is approximately 8.06% of the average combat power.
+
+2. **XGBoost Regressor**
+   - **File**: `xgboost_model.ipynb`
+   - **Description**: An XGBoost Regressor with hyperparameter tuning using GridSearchCV.
+   - **Best Parameters**: 
+     - `n_estimators`: 200
+     - `learning_rate`: 0.1
+     - `max_depth`: 5
+     - `subsample`: 0.8
+     - `colsample_bytree`: 0.8
+   - **Evaluation**: RMSE is approximately 5.48% of the average combat power.
+
+3. **Stacked Regressor**
+   - **File**: `stacked_model.ipynb`
+   - **Description**: A stacking model combining XGBoost, LightGBM, and CatBoost regressors with a Linear Regression as the meta-model.
+   - **Evaluation**: RMSE is approximately 3.76% of the average combat power.
 
 ## Requirements
 
 - pandas
 - numpy
 - scikit-learn
+- xgboost
+- lightgbm
+- catboost
 
 ## Results
 
-- Prediction error is approximately 8.06% of the average combat power.
-
+- **Random Forest Regressor**: Prediction error is approximately 8.06% of the average combat power.
+- **XGBoost Regressor**: Prediction error is approximately 5.48% of the average combat power.
+- **Stacked Regressor**: Prediction error is approximately 3.76% of the average combat power.
